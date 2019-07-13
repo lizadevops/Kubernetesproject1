@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: addressbook-deployment
+  labels:
+    app: addressbook-app
+    env: prod
+spec:
+  replicas: 10
+  template:
+    metadata:
+      name: addressbook-pod
+      labels:
+        app: addressbook-app
+    spec:
+      containers:
+      - name: addressbook-container
+        image: sn130584/addressbook11july:latest
+        ports:
+        - containerPort: 8080
+
